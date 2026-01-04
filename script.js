@@ -472,8 +472,16 @@ function generateATSVersion() {
     // Contacto
     const contactItems = Array.from(document.querySelectorAll('.contact-item'));
     const contact = contactItems.map(item => {
+        // Si tiene un enlace, incluir el texto del enlace y la URL
+        const link = item.querySelector('.contact-link');
+        if (link) {
+            const linkText = link.textContent.trim();
+            const linkUrl = link.getAttribute('href') || '';
+            return item.querySelector('.icon').textContent.trim() + ' ' + linkText + (linkUrl ? ' - ' + linkUrl : '');
+        }
+        // Si no tiene enlace, solo el texto sin emojis
         const text = item.textContent.trim();
-        return text.replace(/[📞✉️📍🌐]/g, '').trim();
+        return text.replace(/[📞✉️📍💼💻]/g, '').trim();
     }).join('\n');
     
     // Educación
@@ -486,9 +494,33 @@ function generateATSVersion() {
     }).join('\n');
     
     // Habilidades
-    const skills = Array.from(document.querySelectorAll('.skills li'))
-        .map(li => li.textContent.trim())
-        .join(', ');
+    let skills = '';
+    
+    // Hard Skills
+    const hardSkillsCategories = Array.from(document.querySelectorAll('.skill-category'));
+    const hardSkills = hardSkillsCategories.map(category => {
+        const categoryName = category.querySelector('.category-name')?.textContent.trim() || '';
+        const categoryItems = category.querySelector('.category-items')?.textContent.trim() || '';
+        return categoryName + ' ' + categoryItems;
+    }).join('; ');
+    
+    // Soft Skills
+    const softSkillsText = document.querySelector('.soft-skills-text')?.textContent.trim() || '';
+    
+    if (hardSkills) {
+        skills = 'Hard Skills: ' + hardSkills;
+    }
+    if (softSkillsText) {
+        skills += (hardSkills ? ' | ' : '') + 'Soft Skills: ' + softSkillsText;
+    }
+    
+    if (!skills) {
+        // Fallback si no encuentra la nueva estructura
+        const oldSkills = Array.from(document.querySelectorAll('.skills li'))
+            .map(li => li.textContent.trim())
+            .join(', ');
+        skills = oldSkills;
+    }
     
     // Idiomas
     const languages = Array.from(document.querySelectorAll('.languages li'))
@@ -535,6 +567,20 @@ function generateATSVersion() {
     atsText += `IDIOMAS\n${languages}\n\n`;
     atsText += `PERFIL\n${profile}\n\n`;
     atsText += `EXPERIENCIA LABORAL\n${experienceText}\n\n`;
+    
+    // Certificaciones
+    const certifications = Array.from(document.querySelectorAll('.certification-item'));
+    const certificationsText = certifications.map(cert => {
+        const institution = cert.querySelector('.certification-institution')?.textContent.trim() || '';
+        const title = cert.querySelector('.certification-title')?.textContent.trim() || '';
+        const date = cert.querySelector('.certification-date')?.textContent.trim() || '';
+        return `${institution}\n${title}\n${date}`;
+    }).join('\n\n');
+    
+    if (certificationsText) {
+        atsText += `CERTIFICACIONES\n${certificationsText}\n\n`;
+    }
+    
     atsText += `PROYECTOS\n${projectsText}\n`;
     
     return atsText;

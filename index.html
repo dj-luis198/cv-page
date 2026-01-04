@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
+
 <body>
     <!-- Menú de navegación - No aparece en PDF/ATS -->
     <nav class="main-nav" id="main-nav">
@@ -21,59 +23,100 @@
             <div class="sidebar-content">
                 <div class="profile-photo">
                     <!-- Reemplaza "foto.jpg" con la ruta a tu foto de perfil -->
-                    <img src="image/image.jpg" alt="Foto de perfil" id="profile-image" onerror="this.style.display='none'">
+                    <img src="image/image.jpg" alt="Foto de perfil" id="profile-image"
+                        onerror="this.style.display='none'">
                 </div>
-                
+
                 <section class="contact">
                     <h3>CONTACTO</h3>
                     <div class="contact-item">
                         <span class="icon">📞</span>
-                        <span>+34 600 000 000</span>
+                        <span>+54 9 381 300 4847</span>
                     </div>
                     <div class="contact-item">
                         <span class="icon">✉️</span>
-                        <span>tu.email@ejemplo.com</span>
+                        <span>danieljlfariass@gmail.com</span>
                     </div>
                     <div class="contact-item">
                         <span class="icon">📍</span>
-                        <span>Madrid, España</span>
+                        <span>Tafí Viejo, Tucumán, Argentina</span>
                     </div>
                     <div class="contact-item">
-                        <span class="icon">🌐</span>
-                        <span>www.tusitio.com</span>
+                        <span class="icon">💼</span>
+                        <a href="https://www.linkedin.com/in/daniel-j-l-farias/" target="_blank"
+                            class="contact-link">LinkedIn</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon">💻</span>
+                        <a href="https://github.com/dj-luis198" target="_blank" class="contact-link">GitHub</a>
                     </div>
                 </section>
 
                 <section class="education">
                     <h3>EDUCACIÓN</h3>
                     <div class="education-item">
-                        <div class="date">2010 - 2014</div>
-                        <h4>Universidad Ejemplo</h4>
-                        <p>Grado en Ingeniería Informática</p>
+                        <h4>Universidad Tecnológica Tucumán</h4>
+                        <p>Ingeniería en Sistemas de Información</p>
+                        <p class="education-note">Incompleto. Cursado hasta quinto año</p>
                     </div>
                 </section>
 
                 <section class="skills">
                     <h3>HABILIDADES</h3>
-                    <ul>
-                        <li>HTML / JSX</li>
-                        <li>CSS / SCSS</li>
-                        <li>JavaScript / TypeScript</li>
-                        <li>React / Next.js</li>
-                        <li>Node.js</li>
-                        <li>Python</li>
-                        <li>PostgreSQL</li>
-                        <li>AWS</li>
-                        <li>Git</li>
-                        <li>Docker</li>
-                    </ul>
+
+                    <div class="hard-skills">
+                        <h4 class="skills-subtitle">Hard Skills</h4>
+
+                        <div class="skill-category">
+                            <span class="category-name">Testing & QA Manual:</span>
+                            <span class="category-items">Diseño y ejecución de casos de prueba, técnicas de caja negra,
+                                Bug Life Cycle</span>
+                        </div>
+
+                        <div class="skill-category">
+                            <span class="category-name">Automatización (proyectos propios):</span>
+                            <span class="category-items">Selenium 4, Cypress.io, Cucumber, JUnit 5, TestNG.</span>
+                        </div>
+
+                        <div class="skill-category">
+                            <span class="category-name">API Testing:</span>
+                            <span class="category-items">Postman, Rest Assured, JMeter.</span>
+                        </div>
+
+                        <div class="skill-category">
+                            <span class="category-name">Gestión & Metodologías:</span>
+                            <span class="category-items">Jira, XRay, Trello, Scrum, Kanban.</span>
+                        </div>
+
+                        <div class="skill-category">
+                            <span class="category-name">Lenguajes de programación:</span>
+                            <span class="category-items">Java, JavaScript, Dart, SQL.</span>
+                        </div>
+
+                        <div class="skill-category">
+                            <span class="category-name">Bases de datos:</span>
+                            <span class="category-items">Microsoft SQL Server.</span>
+                        </div>
+
+                        <div class="skill-category">
+                            <span class="category-name">Herramientas:</span>
+                            <span class="category-items">Docker, Git/GitHub, IntelliJ IDEA, VS Code, Android studio,
+                                Power BI.</span>
+                        </div>
+                    </div>
+
+                    <div class="soft-skills">
+                        <h4 class="skills-subtitle">Soft Skills</h4>
+                        <p class="soft-skills-text">Trabajo en equipo, proactividad, responsabilidad, ética laboral,
+                            pensamiento estratégico, multitarea, flexibilidad, dedicación, pasión por la calidad.</p>
+                    </div>
                 </section>
 
                 <section class="languages">
                     <h3>IDIOMAS</h3>
                     <ul>
                         <li>Español (Nativo)</li>
-                        <li>Inglés (Avanzado)</li>
+                        <li>Inglés (Basico)</li>
                     </ul>
                 </section>
             </div>
@@ -81,108 +124,137 @@
 
         <main class="main-content">
             <div class="header-info">
-                <h1 class="main-name">Tu Nombre</h1>
-                <h2 class="main-title">Desarrollador Web</h2>
+                <h1 class="main-name">Farias Daniel Jorge Luis</h1>
+                <h2 class="main-title">QA Automation/Manual Tester</h2>
             </div>
-            
+
             <section class="profile">
                 <h2>PERFIL</h2>
-                <p>Soy un desarrollador web full stack con experiencia en la construcción de aplicaciones desde cero. He trabajado principalmente en startups, por lo que estoy acostumbrado a desempeñar múltiples roles. Soy un desarrollador muy enfocado en el producto que prioriza el feedback del usuario ante todo. Generalmente soy muy flexible al investigar nuevos roles y tecnologías.</p>
+                <p>Profesional orientado a la calidad del software con experiencia en pruebas manuales y en la creación
+                    de proyectos propios de automatización. Experto en el análisis, diseño y ejecución de casos de
+                    prueba utilizando técnicas de caja negra. Con experiencia en la gestión de incidencias con Jira,
+                    XRay y Trello, aplicando metodologías ágiles como Scrum y Kanban. Hábil en consultas SQL y pruebas
+                    de API-REST con herramientas como Postman y JMeter. Conocimientos en Java, JavaScript y Dart, además
+                    de familiaridad con frameworks de automatización como Selenium y Cypress en proyectos personales.
+                </p>
             </section>
 
             <section class="work-experience">
                 <h2>EXPERIENCIA LABORAL</h2>
-                
+
                 <div class="experience-item">
                     <div class="experience-header">
-                        <h3>Empresa Ejemplo</h3>
-                        <span class="role">Desarrollador Senior</span>
+                        <h3>Autónomo</h3>
+                        <span class="role">Quality Assurance Analyst</span>
                     </div>
-                    <div class="date-range">2020 - PRESENTE</div>
-                    <p>Desarrollo de aplicaciones web full stack utilizando tecnologías modernas. Liderazgo técnico y mentoría de desarrolladores junior.</p>
+                    <div class="date-range">2023 - PRESENTE</div>
+                    <p>
+                        Diseño y ejecución de casos de prueba manuales bajo metodologías ágiles. Gestión de incidencias
+                        y tareas con Excel y Trello. Reporte y seguimiento de bugs respetando el ciclo de vida.
+                        Retesting y validación de correcciones. Pruebas de API con Postman.</p>
                     <ul>
-                        <li>React / Next.js</li>
-                        <li>Node.js / Express</li>
-                        <li>PostgreSQL / MongoDB</li>
-                        <li>AWS / Docker</li>
+                        <li>Scrum</li>
+                        <li>Trello</li>
+                        <li>Postman</li>
                     </ul>
                 </div>
 
                 <div class="experience-item">
                     <div class="experience-header">
-                        <h3>Startup Tecnológica</h3>
-                        <span class="role">Desarrollador Full Stack</span>
+                        <h3>UPEX (Contrato temporal)</h3>
+                        <span class="role">Quality Assurance Analyst</span>
                     </div>
-                    <div class="date-range">2018 - 2020</div>
-                    <p>Desarrollo de plataforma SaaS desde cero. Implementación de arquitectura escalable y optimización de rendimiento.</p>
+                    <div class="date-range">2022 - 2023</div>
+                    <p>Participación en proyectos de QA manual en entorno ágil. Diseño y ejecución de suites de pruebas.
+                        Reporte de defectos y retesting. Colaboración con equipos multidisciplinarios para asegurar la
+                        calidad del producto.</p>
                     <ul>
-                        <li>React, Redux, Styled Components</li>
-                        <li>Node.js / Ruby on Rails</li>
-                        <li>Docker / Heroku / GCP</li>
-                        <li>Optimización de bases de datos con millones de filas</li>
+                        <li>Scrum</li>
+                        <li>Jira / XRay</li>
+                        <li>SQL</li>
+                        <li>Testing QA Manual</li>
                     </ul>
                 </div>
 
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <h3>Agencia Digital</h3>
-                        <span class="role">Desarrollador Frontend</span>
-                    </div>
-                    <div class="date-range">2016 - 2018</div>
-                    <p>Desarrollo de aplicaciones React complejas. Trabajo con equipos multidisciplinarios en proyectos de gran escala.</p>
-                    <ul>
-                        <li>React / Redux</li>
-                        <li>PostgreSQL, Redis</li>
-                        <li>Heroku / EC2</li>
-                        <li>Aplicaciones híbridas multiplataforma</li>
-                    </ul>
-                </div>
             </section>
 
             <section class="projects">
                 <h2>PROYECTOS</h2>
-                
+
                 <div class="project-item">
                     <div class="project-header">
-                        <h3>Proyecto Open Source</h3>
-                        <span class="project-date">2020</span>
+                        <h3>Mis Envíos - Desarrollador Frontend & QA Tester Manual</h3>
+                        <span class="project-date">2025 - PRESENTE</span>
                     </div>
-                    <p>Proyecto comunitario de código abierto para crear un estándar basado en JSON para currículums. Iniciativa que ha ganado miles de estrellas en GitHub.</p>
+                    <p>Implementación de la interfaz de usuario en Android Studio, asegurando una experiencia fluida y
+                        accesible. Desarrollo de componentes reutilizables y responsivos para múltiples dispositivos.
+                        Testing funcional y de usabilidad, con identificación y documentación de errores. Contribución a
+                        la mejora continua mediante feedback sobre la experiencia del usuario.
+                    </p>
                     <ul>
-                        <li>Más de 3000 estrellas en GitHub</li>
-                        <li>Temas desarrollados por la comunidad</li>
-                        <li>Decenas de miles de usuarios</li>
+                        <li>Android Studio</li>
+                        <li>QA Manual</li>
+                        <li>Testing funcional / Usabilidad</li>
                     </ul>
                 </div>
 
                 <div class="project-item">
                     <div class="project-header">
-                        <h3>Aplicación Web</h3>
-                        <span class="project-date">2019 - 2020</span>
+                        <h3>radaR App - Desarrollador Frontend & QA Tester Manual</h3>
+                        <span class="project-date">Ene. 2025 - Jul. 2025</span>
                     </div>
-                    <p>Plataforma web compleja con funcionalidades avanzadas. Implementación de arquitectura escalable y optimización de rendimiento.</p>
+                    <p>Creación y ejecución de casos de prueba manuales para asegurar la calidad del producto. Reporte
+                        de bugs y gestión del proyecto con Trello. Implementación de la interfaz de usuario en Android
+                        Studio, contribuyendo a la mejora de la funcionalidad y la experiencia del usuario final.
+                        Colaboración en la optimización de la UI y en la mejora continua del producto.</p>
                     <ul>
-                        <li>Next.js y React</li>
-                        <li>Base de datos optimizada</li>
-                        <li>Más de 100,000 usuarios activos</li>
+                        <li>Android Studio</li>
+                        <li>QA Manual / Test Cases</li>
+                        <li>Trello / Kanban</li>
                     </ul>
                 </div>
             </section>
 
-            <section class="awards">
-                <h2>PREMIOS Y RECONOCIMIENTOS</h2>
-                <div class="award-item">
-                    <h3>Mejor Proyecto Open Source</h3>
-                    <p>Organización Ejemplo - 15/3/2020</p>
-                    <p>Por mi trabajo en proyectos de código abierto y contribuciones a la comunidad de desarrolladores.</p>
-                </div>
-            </section>
+            <section class="certifications">
+                <h2>CERTIFICACIONES</h2>
 
-            <section class="references">
-                <h2>REFERENCIAS</h2>
-                <div class="reference-item">
-                    <h3>Nombre Referencia, Cargo en Empresa</h3>
-                    <p>Descripción de la referencia y recomendación profesional.</p>
+                <div class="certification-item">
+                    <h3 class="certification-institution">Instituto Web</h3>
+                    <p class="certification-title">Gestión ágil de proyectos QA con Jira, Confluence, Xray, Zephyr,
+                        AgilTest</p>
+                    <span class="certification-date">Dic. 2024</span>
+                </div>
+
+                <div class="certification-item">
+                    <h3 class="certification-institution">TestAutomationU</h3>
+                    <p class="certification-title">Cucumber with Java · JUnit 5 · Selenium 4 in Java · Scaling Tests
+                        with Docker</p>
+                    <span class="certification-date">Nov. 2024</span>
+                </div>
+
+                <div class="certification-item">
+                    <h3 class="certification-institution">TestAutomationU</h3>
+                    <p class="certification-title">IntelliJ for Test Automation Engineers · Introduction to TestNG ·
+                        Java Programming</p>
+                    <span class="certification-date">Jun. 2024</span>
+                </div>
+
+                <div class="certification-item">
+                    <h3 class="certification-institution">Instituto Web</h3>
+                    <p class="certification-title">Testing QA Manual</p>
+                    <span class="certification-date">Jun. 2024</span>
+                </div>
+
+                <div class="certification-item">
+                    <h3 class="certification-institution">Pushing IT</h3>
+                    <p class="certification-title">Cypress Automation</p>
+                    <span class="certification-date">Feb. 2023</span>
+                </div>
+
+                <div class="certification-item">
+                    <h3 class="certification-institution">Udemy</h3>
+                    <p class="certification-title">Selenium con Java y Cucumber</p>
+                    <span class="certification-date">Jun. 2022</span>
                 </div>
             </section>
         </main>
@@ -195,5 +267,5 @@
 
     <script src="script.js"></script>
 </body>
-</html>
 
+</html>
