@@ -1,0 +1,398 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    display: flex;
+    min-height: calc(100vh - 100px);
+}
+
+.sidebar {
+    width: 300px;
+    background: #2c3e50;
+    color: white;
+    padding: 40px 30px;
+    flex-shrink: 0;
+}
+
+.sidebar-content {
+    position: sticky;
+    top: 20px;
+}
+
+.profile-photo {
+    width: 100%;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-photo img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #34495e;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: block;
+}
+
+/* Reducir tamaño de imagen para PDF */
+@media print {
+    .profile-photo img {
+        width: 120px;
+        height: 120px;
+        border: 3px solid #34495e;
+    }
+    
+    .profile-photo {
+        margin-bottom: 15px;
+    }
+    
+    .sidebar {
+        padding: 20px 20px;
+    }
+    
+    .sidebar section {
+        margin-bottom: 20px;
+    }
+}
+
+/* Si no hay foto, ocultar el contenedor */
+.profile-photo img[style*="display: none"] {
+    display: none !important;
+}
+
+.profile-photo:empty {
+    display: none;
+}
+
+.sidebar section {
+    margin-bottom: 35px;
+}
+
+.sidebar h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    color: #ecf0f1;
+    border-bottom: 2px solid #34495e;
+    padding-bottom: 8px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.contact-item .icon {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.education-item {
+    margin-bottom: 20px;
+}
+
+.education-item .date {
+    font-size: 12px;
+    color: #bdc3c7;
+    margin-bottom: 5px;
+}
+
+.education-item h4 {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.education-item p {
+    font-size: 13px;
+    color: #ecf0f1;
+    opacity: 0.9;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: #ecf0f1;
+    padding-left: 5px;
+}
+
+.sidebar ul li:before {
+    content: "• ";
+    color: #3498db;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.main-content {
+    flex: 1;
+    padding: 40px 50px;
+    background: white;
+}
+
+.header-info {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #3498db;
+}
+
+.main-name {
+    font-size: 36px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.main-title {
+    font-size: 20px;
+    font-weight: normal;
+    color: #7f8c8d;
+    margin: 0;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.main-content h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.main-content section {
+    margin-bottom: 40px;
+}
+
+.profile p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #555;
+}
+
+.experience-item,
+.project-item,
+.award-item,
+.reference-item {
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.experience-item:last-child,
+.project-item:last-child,
+.award-item:last-child,
+.reference-item:last-child {
+    border-bottom: none;
+}
+
+.experience-header,
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+}
+
+.experience-header h3,
+.project-header h3 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.experience-header .role {
+    font-size: 16px;
+    color: #7f8c8d;
+    font-weight: normal;
+}
+
+.project-header .project-date {
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+.date-range {
+    font-size: 13px;
+    color: #7f8c8d;
+    margin-bottom: 12px;
+    font-style: italic;
+}
+
+.experience-item p,
+.project-item p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 12px;
+    line-height: 1.7;
+}
+
+.experience-item ul,
+.project-item ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.experience-item ul li,
+.project-item ul li {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 6px;
+    line-height: 1.6;
+}
+
+.award-item h3 {
+    font-size: 18px;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.award-item p {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-bottom: 8px;
+}
+
+.reference-item h3 {
+    font-size: 18px;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.reference-item p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.download-buttons {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-pdf {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-pdf:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.btn-ats {
+    background: #3498db;
+    color: white;
+}
+
+.btn-ats:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Estilos para impresión y PDF */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+    
+    .download-buttons {
+        display: none;
+    }
+    
+    .container {
+        box-shadow: none;
+    }
+}
+
+/* Versión ATS - oculta estilos visuales */
+.ats-version {
+    background: white;
+    color: black;
+}
+
+.ats-version .sidebar {
+    background: white;
+    color: black;
+    border-right: 1px solid #ddd;
+}
+
+.ats-version .sidebar h3 {
+    color: black;
+    border-bottom: 1px solid #ddd;
+}
+
+.ats-version .main-content h2 {
+    color: black;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        padding: 30px 20px;
+    }
+    
+    .main-content {
+        padding: 30px 20px;
+    }
+    
+    .download-buttons {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        justify-content: center;
+        margin-top: 20px;
+        flex-wrap: wrap;
+    }
+}
+

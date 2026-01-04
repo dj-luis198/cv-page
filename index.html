@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículum Vitae</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container" id="cv-container">
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <div class="profile-photo">
+                    <!-- Reemplaza "foto.jpg" con la ruta a tu foto de perfil -->
+                    <img src="image/image.jpg" alt="Foto de perfil" id="profile-image" onerror="this.style.display='none'">
+                </div>
+                
+                <section class="contact">
+                    <h3>CONTACTO</h3>
+                    <div class="contact-item">
+                        <span class="icon">📞</span>
+                        <span>+34 600 000 000</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon">✉️</span>
+                        <span>tu.email@ejemplo.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon">📍</span>
+                        <span>Madrid, España</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon">🌐</span>
+                        <span>www.tusitio.com</span>
+                    </div>
+                </section>
+
+                <section class="education">
+                    <h3>EDUCACIÓN</h3>
+                    <div class="education-item">
+                        <div class="date">2010 - 2014</div>
+                        <h4>Universidad Ejemplo</h4>
+                        <p>Grado en Ingeniería Informática</p>
+                    </div>
+                </section>
+
+                <section class="skills">
+                    <h3>HABILIDADES</h3>
+                    <ul>
+                        <li>HTML / JSX</li>
+                        <li>CSS / SCSS</li>
+                        <li>JavaScript / TypeScript</li>
+                        <li>React / Next.js</li>
+                        <li>Node.js</li>
+                        <li>Python</li>
+                        <li>PostgreSQL</li>
+                        <li>AWS</li>
+                        <li>Git</li>
+                        <li>Docker</li>
+                    </ul>
+                </section>
+
+                <section class="languages">
+                    <h3>IDIOMAS</h3>
+                    <ul>
+                        <li>Español (Nativo)</li>
+                        <li>Inglés (Avanzado)</li>
+                    </ul>
+                </section>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="header-info">
+                <h1 class="main-name">Tu Nombre</h1>
+                <h2 class="main-title">Desarrollador Web</h2>
+            </div>
+            
+            <section class="profile">
+                <h2>PERFIL</h2>
+                <p>Soy un desarrollador web full stack con experiencia en la construcción de aplicaciones desde cero. He trabajado principalmente en startups, por lo que estoy acostumbrado a desempeñar múltiples roles. Soy un desarrollador muy enfocado en el producto que prioriza el feedback del usuario ante todo. Generalmente soy muy flexible al investigar nuevos roles y tecnologías.</p>
+            </section>
+
+            <section class="work-experience">
+                <h2>EXPERIENCIA LABORAL</h2>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Empresa Ejemplo</h3>
+                        <span class="role">Desarrollador Senior</span>
+                    </div>
+                    <div class="date-range">2020 - PRESENTE</div>
+                    <p>Desarrollo de aplicaciones web full stack utilizando tecnologías modernas. Liderazgo técnico y mentoría de desarrolladores junior.</p>
+                    <ul>
+                        <li>React / Next.js</li>
+                        <li>Node.js / Express</li>
+                        <li>PostgreSQL / MongoDB</li>
+                        <li>AWS / Docker</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Startup Tecnológica</h3>
+                        <span class="role">Desarrollador Full Stack</span>
+                    </div>
+                    <div class="date-range">2018 - 2020</div>
+                    <p>Desarrollo de plataforma SaaS desde cero. Implementación de arquitectura escalable y optimización de rendimiento.</p>
+                    <ul>
+                        <li>React, Redux, Styled Components</li>
+                        <li>Node.js / Ruby on Rails</li>
+                        <li>Docker / Heroku / GCP</li>
+                        <li>Optimización de bases de datos con millones de filas</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Agencia Digital</h3>
+                        <span class="role">Desarrollador Frontend</span>
+                    </div>
+                    <div class="date-range">2016 - 2018</div>
+                    <p>Desarrollo de aplicaciones React complejas. Trabajo con equipos multidisciplinarios en proyectos de gran escala.</p>
+                    <ul>
+                        <li>React / Redux</li>
+                        <li>PostgreSQL, Redis</li>
+                        <li>Heroku / EC2</li>
+                        <li>Aplicaciones híbridas multiplataforma</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="projects">
+                <h2>PROYECTOS</h2>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3>Proyecto Open Source</h3>
+                        <span class="project-date">2020</span>
+                    </div>
+                    <p>Proyecto comunitario de código abierto para crear un estándar basado en JSON para currículums. Iniciativa que ha ganado miles de estrellas en GitHub.</p>
+                    <ul>
+                        <li>Más de 3000 estrellas en GitHub</li>
+                        <li>Temas desarrollados por la comunidad</li>
+                        <li>Decenas de miles de usuarios</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3>Aplicación Web</h3>
+                        <span class="project-date">2019 - 2020</span>
+                    </div>
+                    <p>Plataforma web compleja con funcionalidades avanzadas. Implementación de arquitectura escalable y optimización de rendimiento.</p>
+                    <ul>
+                        <li>Next.js y React</li>
+                        <li>Base de datos optimizada</li>
+                        <li>Más de 100,000 usuarios activos</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="awards">
+                <h2>PREMIOS Y RECONOCIMIENTOS</h2>
+                <div class="award-item">
+                    <h3>Mejor Proyecto Open Source</h3>
+                    <p>Organización Ejemplo - 15/3/2020</p>
+                    <p>Por mi trabajo en proyectos de código abierto y contribuciones a la comunidad de desarrolladores.</p>
+                </div>
+            </section>
+
+            <section class="references">
+                <h2>REFERENCIAS</h2>
+                <div class="reference-item">
+                    <h3>Nombre Referencia, Cargo en Empresa</h3>
+                    <p>Descripción de la referencia y recomendación profesional.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="download-buttons">
+        <button id="download-pdf" class="btn btn-pdf">📄 Descargar PDF</button>
+        <button id="download-ats" class="btn btn-ats">📋 Descargar ATS</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
