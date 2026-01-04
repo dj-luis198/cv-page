@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repositorios</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Menú de navegación -->
+    <nav class="main-nav" id="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link">CV</a>
+            <a href="repositorios.html" class="nav-link active">Repositorios</a>
+        </div>
+    </nav>
+
+    <!-- Sección de Repositorios -->
+    <section class="repositories-section" id="repositories-section">
+        <div class="repositories-container">
+            <h2 class="repositories-title">Repositorios</h2>
+            <p class="repositories-subtitle">Explora mis proyectos y repositorios de código</p>
+            
+            <div class="repositories-grid">
+                <!-- Ejemplo de tarjeta de repositorio -->
+                <div class="repository-card" data-repo-url="https://github.com/tuusuario/repositorio1">
+                    <div class="repo-image-container">
+                        <img src="https://via.placeholder.com/400x200?text=Proyecto+1" alt="Repositorio 1" class="repo-image">
+                    </div>
+                    <div class="repo-content">
+                        <h3 class="repo-title">Nombre del Repositorio</h3>
+                        <p class="repo-description">Descripción breve del proyecto. Aquí puedes explicar de qué trata el repositorio, qué tecnologías usa y cuál es su propósito principal.</p>
+                        <a href="https://ejemplo.com/reporte" class="repo-report-link" target="_blank" onclick="event.stopPropagation()">
+                            📊 Ver Reporte
+                        </a>
+                    </div>
+                </div>
+
+                <div class="repository-card" data-repo-url="https://github.com/tuusuario/repositorio2">
+                    <div class="repo-image-container">
+                        <img src="https://via.placeholder.com/400x200?text=Proyecto+2" alt="Repositorio 2" class="repo-image">
+                    </div>
+                    <div class="repo-content">
+                        <h3 class="repo-title">Otro Repositorio</h3>
+                        <p class="repo-description">Otra descripción de proyecto. Puedes agregar más detalles sobre las funcionalidades y características principales.</p>
+                        <a href="https://ejemplo.com/reporte2" class="repo-report-link" target="_blank" onclick="event.stopPropagation()">
+                            📊 Ver Reporte
+                        </a>
+                    </div>
+                </div>
+
+                <div class="repository-card" data-repo-url="https://github.com/tuusuario/repositorio3">
+                    <div class="repo-image-container">
+                        <img src="https://via.placeholder.com/400x200?text=Proyecto+3" alt="Repositorio 3" class="repo-image">
+                    </div>
+                    <div class="repo-content">
+                        <h3 class="repo-title">Tercer Proyecto</h3>
+                        <p class="repo-description">Descripción del tercer proyecto. Menciona las tecnologías utilizadas y los objetivos alcanzados.</p>
+                        <a href="https://ejemplo.com/reporte3" class="repo-report-link" target="_blank" onclick="event.stopPropagation()">
+                            📊 Ver Reporte
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

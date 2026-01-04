@@ -63,12 +63,35 @@ function init() {
     initATSDownload();
 }
 
+// Función para inicializar la sección de repositorios
+function initRepositories() {
+    // Hacer las tarjetas de repositorios clicables
+    const repoCards = document.querySelectorAll('.repository-card');
+    repoCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            // No hacer nada si se hace clic en el link del reporte
+            if (e.target.closest('.repo-report-link')) {
+                return;
+            }
+            
+            const repoUrl = this.getAttribute('data-repo-url');
+            if (repoUrl) {
+                window.open(repoUrl, '_blank');
+            }
+        });
+    });
+}
+
 // Esperar a que el DOM esté completamente cargado
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', function() {
+        init();
+        initRepositories();
+    });
 } else {
     // DOM ya está listo
     init();
+    initRepositories();
 }
 
 function initPDFDownload() {
@@ -170,6 +193,18 @@ function initPDFDownload() {
         // Pequeño delay para asegurar que las imágenes se actualicen en el DOM
         return new Promise(resolve => setTimeout(resolve, 100));
     }).then(() => {
+        // Ocultar menú de navegación y sección de repositorios antes de generar PDF
+        const mainNav = document.getElementById('main-nav');
+        const reposSection = document.getElementById('repositories-section');
+        const mainNavDisplay = mainNav ? mainNav.style.display : '';
+        const reposSectionDisplay = reposSection ? reposSection.style.display : '';
+        if (mainNav) {
+            mainNav.style.display = 'none';
+        }
+        if (reposSection) {
+            reposSection.style.display = 'none';
+        }
+        
         // Aplicar estilos temporales para PDF (reducir tamaño de imagen y espaciado)
         const style = document.createElement('style');
         style.id = 'pdf-styles';
@@ -202,6 +237,12 @@ function initPDFDownload() {
             .sidebar ul li {
                 font-size: 11px !important;
                 margin-bottom: 5px !important;
+            }
+            .main-nav {
+                display: none !important;
+            }
+            .repositories-section {
+                display: none !important;
             }
         `;
         document.head.appendChild(style);
@@ -236,6 +277,14 @@ function initPDFDownload() {
             const pdfStyles = document.getElementById('pdf-styles');
             if (pdfStyles) {
                 pdfStyles.remove();
+            }
+            
+            // Restaurar menú de navegación y sección de repositorios
+            if (mainNav) {
+                mainNav.style.display = mainNavDisplay || '';
+            }
+            if (reposSection) {
+                reposSection.style.display = reposSectionDisplay || '';
             }
         });
     }).then(() => {

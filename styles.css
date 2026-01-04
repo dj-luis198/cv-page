@@ -10,6 +10,67 @@ body {
     color: #333;
     background-color: #f5f5f5;
     padding: 20px;
+    padding-top: 80px; /* Espacio para el menú de navegación */
+}
+
+/* Ajustar padding cuando se genera PDF */
+body.pdf-generating {
+    padding-top: 20px;
+}
+
+/* Menú de navegación - No aparece en PDF/ATS */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    padding: 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 20px;
+    gap: 30px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #555;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 20px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #3498db;
+    background-color: #f8f9fa;
+}
+
+.nav-link.active {
+    color: #3498db;
+    background-color: #e8f4f8;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background-color: #3498db;
+    border-radius: 3px 3px 0 0;
 }
 
 .container {
@@ -371,6 +432,139 @@ body {
     border-bottom: 1px solid #ddd;
 }
 
+/* Sección de Repositorios - No aparece en PDF/ATS */
+.repositories-section {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding: 0 20px;
+    background-color: #f5f5f5;
+    min-height: calc(100vh - 100px);
+}
+
+.repositories-container {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.repositories-title {
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.repositories-subtitle {
+    font-size: 16px;
+    color: #7f8c8d;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.repositories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.repository-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+.repository-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-color: #3498db;
+}
+
+.repo-image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.repo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.repo-image-container:has(.repo-image[src=""])::after,
+.repo-image-container:has(.repo-image[src*="placeholder"])::after {
+    content: "📁";
+    font-size: 48px;
+    color: white;
+    opacity: 0.7;
+}
+
+.repository-card:hover .repo-image {
+    transform: scale(1.05);
+}
+
+.repo-content {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.repo-title {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.repo-description {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    flex: 1;
+}
+
+.repo-report-link {
+    display: inline-flex;
+    align-items: center;
+    color: #3498db;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    margin-top: auto;
+}
+
+.repo-report-link:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* Ocultar menú de navegación y sección de repositorios en PDF y ATS */
+@media print {
+    .main-nav {
+        display: none !important;
+    }
+    .repositories-section {
+        display: none !important;
+    }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .container {
@@ -393,6 +587,15 @@ body {
         justify-content: center;
         margin-top: 20px;
         flex-wrap: wrap;
+    }
+    
+    .repositories-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .repositories-container {
+        padding: 30px 20px;
     }
 }
 
