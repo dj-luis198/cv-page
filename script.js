@@ -464,6 +464,18 @@ function initATSDownload() {
     });
 }
 
+// Función auxiliar para limpiar y normalizar texto
+function cleanText(text) {
+    if (!text) return '';
+    return text
+        .split('\n') // Dividir por líneas
+        .map(line => line.trim()) // Eliminar espacios al inicio y final de cada línea
+        .filter(line => line.length > 0) // Eliminar líneas vacías
+        .join(' ') // Unir con un solo espacio
+        .replace(/\s+/g, ' ') // Reemplazar múltiples espacios por uno solo
+        .trim(); // Eliminar espacios al inicio y final
+}
+
 function generateATSVersion() {
     // Extraer información del DOM
     const name = document.querySelector('.main-name').textContent.trim();
@@ -500,12 +512,12 @@ function generateATSVersion() {
     const hardSkillsCategories = Array.from(document.querySelectorAll('.skill-category'));
     const hardSkills = hardSkillsCategories.map(category => {
         const categoryName = category.querySelector('.category-name')?.textContent.trim() || '';
-        const categoryItems = category.querySelector('.category-items')?.textContent.trim() || '';
+        const categoryItems = cleanText(category.querySelector('.category-items')?.textContent || '');
         return categoryName + ' ' + categoryItems;
     }).join('; ');
     
     // Soft Skills
-    const softSkillsText = document.querySelector('.soft-skills-text')?.textContent.trim() || '';
+    const softSkillsText = cleanText(document.querySelector('.soft-skills-text')?.textContent || '');
     
     if (hardSkills) {
         skills = 'Hard Skills: ' + hardSkills;
@@ -528,7 +540,7 @@ function generateATSVersion() {
         .join(', ');
     
     // Perfil
-    const profile = document.querySelector('.profile p')?.textContent.trim() || '';
+    const profile = cleanText(document.querySelector('.profile p')?.textContent || '');
     
     // Experiencia
     const experiences = Array.from(document.querySelectorAll('.experience-item'));
@@ -537,7 +549,7 @@ function generateATSVersion() {
         const company = header?.querySelector('h3')?.textContent.trim() || '';
         const role = header?.querySelector('.role')?.textContent.trim() || '';
         const date = exp.querySelector('.date-range')?.textContent.trim() || '';
-        const description = exp.querySelector('p')?.textContent.trim() || '';
+        const description = cleanText(exp.querySelector('p')?.textContent || '');
         const bullets = Array.from(exp.querySelectorAll('ul li'))
             .map(li => '  • ' + li.textContent.trim())
             .join('\n');
@@ -551,7 +563,7 @@ function generateATSVersion() {
         const header = proj.querySelector('.project-header');
         const title = header?.querySelector('h3')?.textContent.trim() || '';
         const date = header?.querySelector('.project-date')?.textContent.trim() || '';
-        const description = proj.querySelector('p')?.textContent.trim() || '';
+        const description = cleanText(proj.querySelector('p')?.textContent || '');
         const bullets = Array.from(proj.querySelectorAll('ul li'))
             .map(li => '  • ' + li.textContent.trim())
             .join('\n');
@@ -572,7 +584,7 @@ function generateATSVersion() {
     const certifications = Array.from(document.querySelectorAll('.certification-item'));
     const certificationsText = certifications.map(cert => {
         const institution = cert.querySelector('.certification-institution')?.textContent.trim() || '';
-        const title = cert.querySelector('.certification-title')?.textContent.trim() || '';
+        const title = cleanText(cert.querySelector('.certification-title')?.textContent || '');
         const date = cert.querySelector('.certification-date')?.textContent.trim() || '';
         return `${institution}\n${title}\n${date}`;
     }).join('\n\n');
