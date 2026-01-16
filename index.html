@@ -19,108 +19,29 @@
     </nav>
 
     <div class="container" id="cv-container">
-        <aside class="sidebar">
-            <div class="sidebar-content">
-                <div class="profile-photo">
-                    <!-- Reemplaza "foto.jpg" con la ruta a tu foto de perfil -->
-                    <img src="image/image.jpg" alt="Foto de perfil" id="profile-image"
-                        onerror="this.style.display='none'">
-                </div>
-
-                <section class="contact">
-                    <h3>CONTACTO</h3>
-                    <div class="contact-item">
-                        <span class="icon">📞</span>
-                        <span>+54 9 381 300 4847</span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="icon">✉️</span>
-                        <span>danieljlfariass@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="icon">📍</span>
-                        <span>Tafí Viejo, Tucumán, Argentina</span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="icon">💼</span>
-                        <a href="https://www.linkedin.com/in/daniel-j-l-farias/" target="_blank"
-                            class="contact-link">LinkedIn</a>
-                    </div>
-                    <div class="contact-item">
-                        <span class="icon">💻</span>
-                        <a href="https://github.com/dj-luis198" target="_blank" class="contact-link">GitHub</a>
-                    </div>
-                </section>
-
-                <section class="education">
-                    <h3>EDUCACIÓN</h3>
-                    <div class="education-item">
-                        <h4>Universidad Tecnológica Tucumán</h4>
-                        <p>Ingeniería en Sistemas de Información</p>
-                        <p class="education-note">Incompleto. Cursado hasta quinto año</p>
-                    </div>
-                </section>
-
-                <section class="skills">
-                    <h3>HABILIDADES</h3>
-
-                    <div class="hard-skills">
-                        <h4 class="skills-subtitle">Hard Skills</h4>
-
-                        <div class="skill-category">
-                            <span class="category-name">Testing & QA Manual:</span>
-                            <span class="category-items">Diseño y ejecución de casos de prueba, técnicas de caja negra,
-                                Bug Life Cycle</span>
-                        </div>
-
-                        <div class="skill-category">
-                            <span class="category-name">Automatización (proyectos propios):</span>
-                            <span class="category-items">Playwright, Selenium 4, Cypress.io, Cucumber, JUnit 5, TestNG.</span>
-                        </div>
-
-                        <div class="skill-category">
-                            <span class="category-name">API Testing:</span>
-                            <span class="category-items">Postman, Rest Assured, JMeter.</span>
-                        </div>
-
-                        <div class="skill-category">
-                            <span class="category-name">Gestión & Metodologías:</span>
-                            <span class="category-items">Jira, XRay, Trello, Scrum, Kanban.</span>
-                        </div>
-
-                        <div class="skill-category">
-                            <span class="category-name">Lenguajes de programación:</span>
-                            <span class="category-items">Java, JavaScript, Dart, SQL.</span>
-                        </div>
-
-                        <div class="skill-category">
-                            <span class="category-name">Bases de datos:</span>
-                            <span class="category-items">Microsoft SQL Server.</span>
-                        </div>
-
-                        <div class="skill-category">
-                            <span class="category-name">Herramientas:</span>
-                            <span class="category-items">Docker, Git/GitHub, IntelliJ IDEA, VS Code, Android studio,
-                                Power BI.</span>
-                        </div>
-                    </div>
-
-                    <div class="soft-skills">
-                        <h4 class="skills-subtitle">Soft Skills</h4>
-                        <p class="soft-skills-text">Trabajo en equipo, proactividad, responsabilidad, ética laboral,
-                            pensamiento estratégico, multitarea, flexibilidad, dedicación, pasión por la calidad.</p>
-                    </div>
-                </section>
-
-                <section class="languages">
-                    <h3>IDIOMAS</h3>
-                    <ul>
-                        <li>Español (Nativo)</li>
-                        <li>Inglés (Basico)</li>
-                    </ul>
-                </section>
+        <!-- Contacto en la parte superior en una línea -->
+        <section class="top-contact">
+            <div class="contact-item-inline">
+                <span class="icon">📞</span>
+                <span>+54 9 381 300 4847</span>
             </div>
-        </aside>
+            <div class="contact-item-inline">
+                <span class="icon">✉️</span>
+                <span>danieljlfariass@gmail.com</span>
+            </div>
+            <div class="contact-item-inline">
+                <span class="icon">📍</span>
+                <span>Tucumán, Argentina</span>
+            </div>
+            <div class="contact-item-inline">
+                <span class="icon">💼</span>
+                <span>https://www.linkedin.com/in/daniel-j-l-farias/</span>
+            </div>
+            <div class="contact-item-inline">
+                <span class="icon">💻</span>
+                <span>https://github.com/dj-luis198</span>
+            </div>
+        </section>
 
         <main class="main-content">
             <div class="header-info">
@@ -135,12 +56,13 @@
                     prueba utilizando técnicas de caja negra. Con experiencia en la gestión de incidencias con Jira,
                     XRay y Trello, aplicando metodologías ágiles como Scrum y Kanban. Hábil en consultas SQL y pruebas
                     de API-REST con herramientas como Postman y JMeter. Conocimientos en Java, JavaScript y Dart, además
-                    de familiaridad con frameworks de automatización como Playwright, Selenium y Cypress en proyectos personales.
+                    de familiaridad con frameworks de automatización como Playwright, Selenium y Cypress en proyectos
+                    personales.
                 </p>
             </section>
 
             <section class="work-experience">
-                <h2>EXPERIENCIA LABORAL</h2>
+                <h2>EXPERIENCIA LABORAL RECIENTE</h2>
 
                 <div class="experience-item">
                     <div class="experience-header">
@@ -151,11 +73,10 @@
                     <p>
                         Diseño y ejecución de casos de prueba manuales bajo metodologías ágiles. Gestión de incidencias
                         y tareas con Excel y Trello. Reporte y seguimiento de bugs respetando el ciclo de vida.
-                        Retesting y validación de correcciones. Pruebas de API con Postman.</p>
+                        Retesting y validación de correcciones. Pruebas de API con Postman. Proyectos destacados: Mis
+                        Envíos, radaR App (ver sección Proyectos).</p>
                     <ul>
-                        <li>Scrum</li>
-                        <li>Trello</li>
-                        <li>Postman</li>
+                        <li> Scrum / Trello / Postman </li>
                     </ul>
                 </div>
 
@@ -169,10 +90,7 @@
                         Reporte de defectos y retesting. Colaboración con equipos multidisciplinarios para asegurar la
                         calidad del producto.</p>
                     <ul>
-                        <li>Scrum</li>
-                        <li>Jira / XRay</li>
-                        <li>SQL</li>
-                        <li>Testing QA Manual</li>
+                        <li> Scrum / Jira / XRay / SQL / Testing QA Manual</li>
                     </ul>
                 </div>
 
@@ -192,9 +110,7 @@
                         la mejora continua mediante feedback sobre la experiencia del usuario.
                     </p>
                     <ul>
-                        <li>Android Studio</li>
-                        <li>QA Manual</li>
-                        <li>Testing funcional / Usabilidad</li>
+                        <li>Android Studio / QA Manual / Testing funcional / Usabilidad</li>
                     </ul>
                 </div>
 
@@ -203,66 +119,143 @@
                         <h3>radaR App - Desarrollador Frontend & QA Tester Manual</h3>
                         <span class="project-date">Ene. 2025 - Jul. 2025</span>
                     </div>
-                    <p>Creación y ejecución de casos de prueba manuales para asegurar la calidad del producto. Reporte
-                        de bugs y gestión del proyecto con Trello. Implementación de la interfaz de usuario en Android
-                        Studio, contribuyendo a la mejora de la funcionalidad y la experiencia del usuario final.
-                        Colaboración en la optimización de la UI y en la mejora continua del producto.</p>
+                    <p>Creación y ejecución de casos de prueba manuales para asegurar la calidad del producto.
+
+                        Reporte de bugs y gestión del proyecto con Trello bajo metodología Kanban.
+
+                        Implementación de la interfaz de usuario en Android Studio, contribuyendo a la mejora de la
+                        funcionalidad y experiencia del usuario final.
+                        Coordinación de pruebas internas y cerradas, incluyendo la recolección y traducción de feedback
+                        de testers para transformarlo en mejoras de backend y optimizaciones de la UI.
+
+                        Colaboración en la incorporación de nuevas funcionalidades orientadas a la experiencia del
+                        usuario y en la mejora continua del producto.</p>
                     <ul>
-                        <li>Android Studio</li>
-                        <li>QA Manual / Test Cases</li>
-                        <li>Trello / Kanban</li>
+                        <li>Android Studio / QA Manual / Test Cases / Trello / Kanban</li>
                     </ul>
                 </div>
             </section>
 
-            <section class="certifications">
-                <h2>CERTIFICACIONES</h2>
+            <!-- Sección compacta: Certificaciones, Habilidades, Educación e Idiomas -->
+            <section class="compact-section">
+                <div class="compact-grid">
+                    <!-- Certificaciones -->
+                    <div class="compact-column certifications-compact">
+                        <h2>CERTIFICACIONES</h2>
+                        <div class="certification-item-compact">
+                            <div class="cert-compact-line">
+                                <span class="cert-institution-compact">Instituto Web</span>
+                                <span class="cert-date-compact">Dic. 2024</span>
+                            </div>
+                            <p class="cert-title-compact">Gestión ágil de proyectos QA con Jira, Confluence, Xray,
+                                Zephyr, AgilTest</p>
+                        </div>
+                        <div class="certification-item-compact">
+                            <div class="cert-compact-line">
+                                <span class="cert-institution-compact">TestAutomationU</span>
+                                <span class="cert-date-compact">Nov. 2024</span>
+                            </div>
+                            <p class="cert-title-compact">Cucumber with Java · JUnit 5 · Selenium 4 in Java · Scaling
+                                Tests with Docker</p>
+                        </div>
+                        <div class="certification-item-compact">
+                            <div class="cert-compact-line">
+                                <span class="cert-institution-compact">TestAutomationU</span>
+                                <span class="cert-date-compact">Jun. 2024</span>
+                            </div>
+                            <p class="cert-title-compact">IntelliJ for Test Automation Engineers · Introduction to
+                                TestNG · Java Programming</p>
+                        </div>
+                        <div class="certification-item-compact">
+                            <div class="cert-compact-line">
+                                <span class="cert-institution-compact">Instituto Web</span>
+                                <span class="cert-date-compact">Jun. 2024</span>
+                            </div>
+                            <p class="cert-title-compact">Testing QA Manual</p>
+                        </div>
+                        <div class="certification-item-compact">
+                            <div class="cert-compact-line">
+                                <span class="cert-institution-compact">Pushing IT</span>
+                                <span class="cert-date-compact">Feb. 2023</span>
+                            </div>
+                            <p class="cert-title-compact">Cypress Automation</p>
+                        </div>
+                        <div class="certification-item-compact">
+                            <div class="cert-compact-line">
+                                <span class="cert-institution-compact">Udemy</span>
+                                <span class="cert-date-compact">Jun. 2022</span>
+                            </div>
+                            <p class="cert-title-compact">Selenium con Java y Cucumber</p>
+                        </div>
+                    </div>
 
-                <div class="certification-item">
-                    <h3 class="certification-institution">Instituto Web</h3>
-                    <p class="certification-title">Gestión ágil de proyectos QA con Jira, Confluence, Xray, Zephyr,
-                        AgilTest</p>
-                    <span class="certification-date">Dic. 2024</span>
-                </div>
+                    <!-- Habilidades, Educación e Idiomas -->
+                    <div class="compact-column skills-education-compact">
+                        <div class="skills-compact">
+                            <h2>HABILIDADES</h2>
+                            <div class="hard-skills-compact">
+                                <h3 class="skills-subtitle-compact">Hard Skills</h3>
+                                <div class="skill-category-compact">
+                                    <strong>Testing & QA Manual:</strong> Diseño y ejecución de casos de prueba,
+                                    técnicas de caja negra, Bug Life Cycle
+                                </div>
+                                <div class="skill-category-compact">
+                                    <strong>Automatización (proyectos propios):</strong> Playwright, Selenium 4,
+                                    Cypress.io, Cucumber, JUnit 5, TestNG.
+                                </div>
+                                <div class="skill-category-compact">
+                                    <strong>API Testing:</strong> Postman, Rest Assured, JMeter.
+                                </div>
+                                <div class="skill-category-compact">
+                                    <strong>Gestión & Metodologías:</strong> Jira, XRay, Trello, Scrum, Kanban.
+                                </div>
+                                <div class="skill-category-compact">
+                                    <strong>Lenguajes de programación:</strong> Java, JavaScript, Dart, SQL.
+                                </div>
+                                <div class="skill-category-compact">
+                                    <strong>Bases de datos:</strong> Microsoft SQL Server.
+                                </div>
+                                <div class="skill-category-compact">
+                                    <strong>Herramientas:</strong> Docker, Git/GitHub, IntelliJ IDEA, VS Code, Android
+                                    studio, Power BI.
+                                </div>
+                            </div>
+                            <div class="soft-skills-compact">
+                                <h3 class="skills-subtitle-compact">Soft Skills</h3>
+                                <p class="soft-skills-text-compact">Trabajo en equipo, proactividad, responsabilidad,
+                                    ética laboral, pensamiento estratégico, multitarea, flexibilidad, dedicación, pasión
+                                    por la calidad.</p>
+                            </div>
+                        </div>
 
-                <div class="certification-item">
-                    <h3 class="certification-institution">TestAutomationU</h3>
-                    <p class="certification-title">Cucumber with Java · JUnit 5 · Selenium 4 in Java · Scaling Tests
-                        with Docker</p>
-                    <span class="certification-date">Nov. 2024</span>
-                </div>
+                        <div class="education-compact">
+                            <h2>EDUCACIÓN</h2>
+                            <div class="education-item-compact">
+                                <strong>Universidad Tecnológica Tucumán</strong> - Ingeniería en Sistemas de Información
+                                <span class="education-note-compact">Incompleto. Cursado hasta quinto año</span>
+                            </div>
+                        </div>
 
-                <div class="certification-item">
-                    <h3 class="certification-institution">TestAutomationU</h3>
-                    <p class="certification-title">IntelliJ for Test Automation Engineers · Introduction to TestNG ·
-                        Java Programming</p>
-                    <span class="certification-date">Jun. 2024</span>
-                </div>
-
-                <div class="certification-item">
-                    <h3 class="certification-institution">Instituto Web</h3>
-                    <p class="certification-title">Testing QA Manual</p>
-                    <span class="certification-date">Jun. 2024</span>
-                </div>
-
-                <div class="certification-item">
-                    <h3 class="certification-institution">Pushing IT</h3>
-                    <p class="certification-title">Cypress Automation</p>
-                    <span class="certification-date">Feb. 2023</span>
-                </div>
-
-                <div class="certification-item">
-                    <h3 class="certification-institution">Udemy</h3>
-                    <p class="certification-title">Selenium con Java y Cucumber</p>
-                    <span class="certification-date">Jun. 2022</span>
+                        <div class="languages-compact">
+                            <h2>IDIOMAS</h2>
+                            <p>Español (Nativo) · Inglés (Básico)</p>
+                        </div>
+                    </div>
                 </div>
             </section>
+
         </main>
     </div>
 
     <div class="download-buttons">
         <button id="download-pdf" class="btn btn-pdf">📄 Descargar PDF</button>
         <button id="download-ats" class="btn btn-ats">📋 Descargar ATS</button>
+    </div>
+
+    <!-- Botones de generación (ocultos por defecto, solo para el administrador) -->
+    <div class="generate-buttons" id="generate-buttons" style="display: none;">
+        <button id="generate-pdf" class="btn btn-generate">🔄 Regenerar PDF</button>
+        <button id="generate-ats" class="btn btn-generate">🔄 Regenerar ATS</button>
     </div>
 
     <script src="script.js"></script>

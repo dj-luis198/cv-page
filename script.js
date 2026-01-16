@@ -57,10 +57,34 @@ function generateFileName(extension) {
     }
 }
 
+// Función para mostrar/ocultar botones de generación
+// Llama a esta función desde la consola del navegador cuando necesites regenerar los archivos
+// Ejemplo: showGenerateButtons() o hideGenerateButtons()
+function showGenerateButtons() {
+    const generateButtons = document.getElementById('generate-buttons');
+    if (generateButtons) {
+        generateButtons.style.display = 'flex';
+        console.log('✅ Botones de generación habilitados');
+    }
+}
+
+function hideGenerateButtons() {
+    const generateButtons = document.getElementById('generate-buttons');
+    if (generateButtons) {
+        generateButtons.style.display = 'none';
+        console.log('✅ Botones de generación ocultos');
+    }
+}
+
 // Función para inicializar cuando el DOM esté listo
 function init() {
-    initPDFDownload();
-    initATSDownload();
+    initPDFDownload(); // Descarga archivo estático
+    initATSDownload(); // Descarga archivo estático
+    initPDFGenerate(); // Genera nuevo PDF
+    initATSGenerate(); // Genera nuevo ATS
+    
+    // Los botones de generación están ocultos por defecto
+    // Usa showGenerateButtons() en la consola para mostrarlos cuando necesites regenerar
 }
 
 // Función para inicializar la sección de repositorios
@@ -94,6 +118,7 @@ if (document.readyState === 'loading') {
     initRepositories();
 }
 
+// Función para descargar PDF estático
 function initPDFDownload() {
     const pdfButton = document.getElementById('download-pdf');
     if (!pdfButton) {
@@ -102,13 +127,48 @@ function initPDFDownload() {
     }
     
     pdfButton.addEventListener('click', function() {
-    const element = document.getElementById('cv-container');
+        // Generar nombre de archivo basado en el CV actual
+        const fileName = generateFileName('pdf');
+        
+        // Intentar descargar el archivo estático
+        // Si no existe, mostrar mensaje
+        const link = document.createElement('a');
+        link.href = fileName; // Ruta al archivo estático
+        link.download = fileName;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        
+        // Intentar descargar
+        link.click();
+        
+        // Si falla, el navegador mostrará un error 404
+        setTimeout(() => {
+            document.body.removeChild(link);
+        }, 100);
+    });
+}
+
+// Función para generar nuevo PDF
+function initPDFGenerate() {
+    const generateButton = document.getElementById('generate-pdf');
+    if (!generateButton) {
+        return; // Botón no existe, no hacer nada
+    }
     
-    // Mostrar mensaje de carga
-    const btn = this;
-    const originalText = btn.textContent;
-    btn.textContent = '⏳ Generando PDF...';
-    btn.disabled = true;
+    generateButton.addEventListener('click', function() {
+        const element = document.getElementById('cv-container');
+        
+        if (!element) {
+            console.error('Elemento cv-container no encontrado');
+            alert('Error: No se encontró el contenido del CV');
+            return;
+        }
+        
+        // Mostrar mensaje de carga
+        const btn = this;
+        const originalText = btn.textContent;
+        btn.textContent = '⏳ Generando PDF...';
+        btn.disabled = true;
     
     // Detectar si estamos en file:// protocol
     const isFileProtocol = window.location.protocol === 'file:';
@@ -205,43 +265,320 @@ function initPDFDownload() {
             reposSection.style.display = 'none';
         }
         
-        // Aplicar estilos temporales para PDF (reducir tamaño de imagen y espaciado)
+        // Aplicar estilos temporales para PDF - Forzar versión de escritorio
         const style = document.createElement('style');
         style.id = 'pdf-styles';
         style.textContent = `
-            .profile-photo img {
-                width: 100px !important;
-                height: 100px !important;
-                border: 2px solid #34495e !important;
-            }
-            .profile-photo {
-                margin-bottom: 10px !important;
-            }
-            .sidebar {
-                padding: 15px 15px !important;
-            }
-            .sidebar section {
-                margin-bottom: 15px !important;
-            }
-            .sidebar h3 {
-                margin-bottom: 10px !important;
-                padding-bottom: 5px !important;
-            }
-            .contact-item {
-                margin-bottom: 8px !important;
-                font-size: 12px !important;
-            }
-            .education-item {
-                margin-bottom: 12px !important;
-            }
-            .sidebar ul li {
-                font-size: 11px !important;
-                margin-bottom: 5px !important;
-            }
+            /* Ocultar elementos que no deben aparecer en PDF */
             .main-nav {
                 display: none !important;
             }
             .repositories-section {
+                display: none !important;
+            }
+            
+            /* Forzar estilos de escritorio - ignorar media queries */
+            body {
+                padding: 20px !important;
+                padding-top: 20px !important;
+            }
+            
+            .container {
+                max-width: 1000px !important;
+                margin: 0 auto !important;
+                box-shadow: 0 0 20px rgba(0,0,0,0.1) !important;
+            }
+            
+            .top-contact {
+                padding: 10px 20px !important;
+                font-size: 11px !important;
+                gap: 15px !important;
+                flex-wrap: nowrap !important;
+                flex-direction: row !important;
+                justify-content: center !important;
+                align-items: center !important;
+                overflow-x: auto !important;
+            }
+            
+            .contact-item-inline {
+                flex-shrink: 0 !important;
+                flex: 0 1 auto !important;
+                min-width: 0 !important;
+                max-width: none !important;
+                width: auto !important;
+            }
+            
+            .contact-item-inline span {
+                white-space: nowrap !important;
+                word-break: normal !important;
+                overflow-wrap: normal !important;
+                max-width: 200px !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+            }
+            
+            .main-content {
+                padding: 20px 30px !important;
+            }
+            
+            .header-info {
+                text-align: center !important;
+                margin-bottom: 15px !important;
+                padding-bottom: 10px !important;
+            }
+            
+            .main-name {
+                font-size: 28px !important;
+                margin-bottom: 4px !important;
+            }
+            
+            .main-title {
+                font-size: 16px !important;
+            }
+            
+            .main-content h2 {
+                font-size: 18px !important;
+                margin-bottom: 12px !important;
+                padding-bottom: 6px !important;
+            }
+            
+            .main-content section {
+                margin-bottom: 15px !important;
+            }
+            
+            .profile p {
+                font-size: 13px !important;
+                line-height: 1.6 !important;
+            }
+            
+            .experience-item,
+            .project-item,
+            .certification-item {
+                margin-bottom: 15px !important;
+                padding-bottom: 12px !important;
+            }
+            
+            .experience-header h3,
+            .project-header h3 {
+                font-size: 16px !important;
+            }
+            
+            .date-range,
+            .project-date {
+                font-size: 12px !important;
+            }
+            
+            .experience-item p,
+            .project-item p {
+                font-size: 13px !important;
+                margin-bottom: 8px !important;
+                line-height: 1.5 !important;
+            }
+            
+            .experience-item ul,
+            .project-item ul {
+                margin-top: 6px !important;
+                margin-bottom: 0 !important;
+            }
+            
+            .experience-item ul li,
+            .project-item ul li {
+                font-size: 12px !important;
+                margin-bottom: 4px !important;
+            }
+            
+            .compact-section {
+                margin-top: 10px !important;
+            }
+            
+            .compact-grid {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 20px !important;
+            }
+            
+            .compact-column h2 {
+                font-size: 16px !important;
+                margin-bottom: 10px !important;
+                padding-bottom: 5px !important;
+            }
+            
+            .certification-item-compact {
+                margin-bottom: 10px !important;
+                padding-bottom: 8px !important;
+            }
+            
+            .cert-institution-compact {
+                font-size: 12px !important;
+            }
+            
+            .cert-title-compact {
+                font-size: 11px !important;
+                line-height: 1.4 !important;
+            }
+            
+            .cert-date-compact {
+                font-size: 10px !important;
+            }
+            
+            .skills-subtitle-compact {
+                font-size: 12px !important;
+                margin-top: 10px !important;
+                margin-bottom: 6px !important;
+            }
+            
+            .skill-category-compact {
+                font-size: 11px !important;
+                margin-bottom: 5px !important;
+                line-height: 1.4 !important;
+            }
+            
+            .soft-skills-text-compact {
+                font-size: 11px !important;
+                line-height: 1.5 !important;
+            }
+            
+            .education-item-compact {
+                font-size: 11px !important;
+                line-height: 1.5 !important;
+            }
+            
+            .languages-compact p {
+                font-size: 11px !important;
+            }
+            
+            .download-buttons {
+                display: none !important;
+            }
+            
+            /* Asegurar que los media queries no se apliquen - forzar siempre versión escritorio */
+            @media (max-width: 768px) {
+                .main-content {
+                    padding: 20px 30px !important;
+                }
+                .top-contact {
+                    padding: 8px 15px !important;
+                    font-size: 9px !important;
+                    flex-wrap: nowrap !important;
+                    flex-direction: row !important;
+                }
+                .contact-item-inline {
+                    flex: 0 1 auto !important;
+                    width: auto !important;
+                }
+            }
+            
+            @media (max-width: 480px) {
+                .main-content {
+                    padding: 20px 30px !important;
+                }
+                .top-contact {
+                    padding: 8px 15px !important;
+                    font-size: 9px !important;
+                    flex-wrap: nowrap !important;
+                    flex-direction: row !important;
+                }
+                .contact-item-inline {
+                    flex: 0 1 auto !important;
+                    width: auto !important;
+                }
+            }
+            
+            .experience-item,
+            .project-item,
+            .certification-item {
+                margin-bottom: 15px !important;
+                padding-bottom: 12px !important;
+            }
+            
+            .experience-header h3,
+            .project-header h3 {
+                font-size: 16px !important;
+            }
+            
+            .date-range,
+            .project-date {
+                font-size: 12px !important;
+                margin-bottom: 8px !important;
+            }
+            
+            .experience-item p,
+            .project-item p {
+                font-size: 13px !important;
+                margin-bottom: 8px !important;
+                line-height: 1.5 !important;
+            }
+            
+            .experience-item ul,
+            .project-item ul {
+                margin-top: 6px !important;
+                margin-bottom: 0 !important;
+            }
+            
+            .experience-item ul li,
+            .project-item ul li {
+                font-size: 12px !important;
+                margin-bottom: 4px !important;
+            }
+            
+            .compact-section {
+                margin-top: 10px !important;
+            }
+            
+            .compact-grid {
+                gap: 20px !important;
+            }
+            
+            .compact-column h2 {
+                font-size: 16px !important;
+                margin-bottom: 10px !important;
+                padding-bottom: 5px !important;
+            }
+            
+            .certification-item-compact {
+                margin-bottom: 10px !important;
+                padding-bottom: 8px !important;
+            }
+            
+            .cert-institution-compact {
+                font-size: 12px !important;
+            }
+            
+            .cert-title-compact {
+                font-size: 11px !important;
+                line-height: 1.4 !important;
+            }
+            
+            .cert-date-compact {
+                font-size: 10px !important;
+            }
+            
+            .skills-subtitle-compact {
+                font-size: 12px !important;
+                margin-top: 10px !important;
+                margin-bottom: 6px !important;
+            }
+            
+            .skill-category-compact {
+                font-size: 11px !important;
+                margin-bottom: 5px !important;
+                line-height: 1.4 !important;
+            }
+            
+            .soft-skills-text-compact {
+                font-size: 11px !important;
+                line-height: 1.5 !important;
+            }
+            
+            .education-item-compact {
+                font-size: 11px !important;
+                line-height: 1.5 !important;
+            }
+            
+            .languages-compact p {
+                font-size: 11px !important;
+            }
+            
+            .download-buttons {
                 display: none !important;
             }
         `;
@@ -255,7 +592,7 @@ function initPDFDownload() {
         console.log('Generando PDF con nombre:', fileName);
         
         const opt = {
-            margin: [5, 5, 5, 5],
+            margin: [3, 3, 3, 3],
             filename: fileName,
             image: { type: 'jpeg', quality: 0.95 },
             html2canvas: { 
@@ -443,24 +780,56 @@ function initATSDownload() {
     }
     
     atsButton.addEventListener('click', function() {
-    // Crear una versión simplificada del CV para ATS
-    const atsContent = generateATSVersion();
+        // Generar nombre de archivo basado en el CV actual
+        const fileName = generateFileName('txt');
+        
+        // Intentar descargar el archivo estático
+        const link = document.createElement('a');
+        link.href = fileName; // Ruta al archivo estático
+        link.download = fileName;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        
+        // Intentar descargar
+        link.click();
+        
+        // Si falla, el navegador mostrará un error 404
+        setTimeout(() => {
+            document.body.removeChild(link);
+        }, 100);
+    });
+}
+
+// Función para generar nuevo ATS
+function initATSGenerate() {
+    const generateButton = document.getElementById('generate-ats');
+    if (!generateButton) {
+        return; // Botón no existe, no hacer nada
+    }
     
-    // Generar nombre de archivo personalizado
-    const fileName = generateFileName('txt');
-    console.log('Generando ATS con nombre:', fileName);
-    
-    // Crear blob y descargar
-    const blob = new Blob([atsContent], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = fileName;
-    console.log('Atributo download establecido en:', a.download);
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    generateButton.addEventListener('click', function() {
+        try {
+            // Crear una versión simplificada del CV para ATS
+            const atsContent = generateATSVersion();
+            
+            // Generar nombre de archivo personalizado
+            const fileName = generateFileName('txt');
+            console.log('Generando ATS con nombre:', fileName);
+            
+            // Crear blob y descargar
+            const blob = new Blob([atsContent], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        } catch (error) {
+            console.error('Error al generar ATS:', error);
+            alert('Error al generar el ATS: ' + (error.message || 'Error desconocido'));
+        }
     });
 }
 
@@ -481,63 +850,28 @@ function generateATSVersion() {
     const name = document.querySelector('.main-name').textContent.trim();
     const title = document.querySelector('.main-title').textContent.trim();
     
-    // Contacto
-    const contactItems = Array.from(document.querySelectorAll('.contact-item'));
-    const contact = contactItems.map(item => {
-        // Si tiene un enlace, incluir el texto del enlace y la URL
-        const link = item.querySelector('.contact-link');
-        if (link) {
-            const linkText = link.textContent.trim();
-            const linkUrl = link.getAttribute('href') || '';
-            return item.querySelector('.icon').textContent.trim() + ' ' + linkText + (linkUrl ? ' - ' + linkUrl : '');
-        }
-        // Si no tiene enlace, solo el texto sin emojis
-        const text = item.textContent.trim();
-        return text.replace(/[📞✉️📍💼💻]/g, '').trim();
-    }).join('\n');
-    
-    // Educación
-    const educationItems = Array.from(document.querySelectorAll('.education-item'));
-    const education = educationItems.map(item => {
-        const date = item.querySelector('.date')?.textContent.trim() || '';
-        const title = item.querySelector('h4')?.textContent.trim() || '';
-        const description = item.querySelector('p')?.textContent.trim() || '';
-        return `${date} - ${title} - ${description}`;
-    }).join('\n');
-    
-    // Habilidades
-    let skills = '';
-    
-    // Hard Skills
-    const hardSkillsCategories = Array.from(document.querySelectorAll('.skill-category'));
-    const hardSkills = hardSkillsCategories.map(category => {
-        const categoryName = category.querySelector('.category-name')?.textContent.trim() || '';
-        const categoryItems = cleanText(category.querySelector('.category-items')?.textContent || '');
-        return categoryName + ' ' + categoryItems;
-    }).join('; ');
-    
-    // Soft Skills
-    const softSkillsText = cleanText(document.querySelector('.soft-skills-text')?.textContent || '');
-    
-    if (hardSkills) {
-        skills = 'Hard Skills: ' + hardSkills;
+    // Contacto (nueva estructura con contact-item-inline)
+    let contact = '';
+    const contactItemsInline = Array.from(document.querySelectorAll('.contact-item-inline'));
+    if (contactItemsInline.length > 0) {
+        contact = contactItemsInline.map(item => {
+            const text = item.textContent.trim();
+            return text.replace(/[📞✉️📍💼💻]/g, '').trim();
+        }).join(' | ');
+    } else {
+        // Fallback a estructura antigua
+        const contactItems = Array.from(document.querySelectorAll('.contact-item'));
+        contact = contactItems.map(item => {
+            const link = item.querySelector('.contact-link');
+            if (link) {
+                const linkText = link.textContent.trim();
+                const linkUrl = link.getAttribute('href') || '';
+                return item.querySelector('.icon').textContent.trim() + ' ' + linkText + (linkUrl ? ' - ' + linkUrl : '');
+            }
+            const text = item.textContent.trim();
+            return text.replace(/[📞✉️📍💼💻]/g, '').trim();
+        }).join('\n');
     }
-    if (softSkillsText) {
-        skills += (hardSkills ? ' | ' : '') + 'Soft Skills: ' + softSkillsText;
-    }
-    
-    if (!skills) {
-        // Fallback si no encuentra la nueva estructura
-        const oldSkills = Array.from(document.querySelectorAll('.skills li'))
-            .map(li => li.textContent.trim())
-            .join(', ');
-        skills = oldSkills;
-    }
-    
-    // Idiomas
-    const languages = Array.from(document.querySelectorAll('.languages li'))
-        .map(li => li.textContent.trim())
-        .join(', ');
     
     // Perfil
     const profile = cleanText(document.querySelector('.profile p')?.textContent || '');
@@ -571,29 +905,106 @@ function generateATSVersion() {
         return `${title} (${date})\n${description}\n${bullets}`;
     }).join('\n\n');
     
-    // Construir texto ATS
-    let atsText = `${name}\n${title}\n\n`;
-    atsText += `CONTACTO\n${contact}\n\n`;
-    atsText += `EDUCACIÓN\n${education}\n\n`;
-    atsText += `HABILIDADES\n${skills}\n\n`;
-    atsText += `IDIOMAS\n${languages}\n\n`;
-    atsText += `PERFIL\n${profile}\n\n`;
-    atsText += `EXPERIENCIA LABORAL\n${experienceText}\n\n`;
-    
-    // Certificaciones
-    const certifications = Array.from(document.querySelectorAll('.certification-item'));
+    // Certificaciones (nueva estructura compacta)
+    const certifications = Array.from(document.querySelectorAll('.certification-item-compact'));
     const certificationsText = certifications.map(cert => {
-        const institution = cert.querySelector('.certification-institution')?.textContent.trim() || '';
-        const title = cleanText(cert.querySelector('.certification-title')?.textContent || '');
-        const date = cert.querySelector('.certification-date')?.textContent.trim() || '';
+        const institution = cert.querySelector('.cert-institution-compact')?.textContent.trim() || '';
+        const title = cleanText(cert.querySelector('.cert-title-compact')?.textContent || '');
+        const date = cert.querySelector('.cert-date-compact')?.textContent.trim() || '';
         return `${institution}\n${title}\n${date}`;
     }).join('\n\n');
+    
+    // Educación (intentar nueva estructura compacta primero)
+    let education = '';
+    const educationItemCompact = document.querySelector('.education-item-compact');
+    if (educationItemCompact) {
+        education = cleanText(educationItemCompact.textContent || '');
+    } else {
+        // Fallback a estructura antigua
+        const educationItems = Array.from(document.querySelectorAll('.education-item'));
+        education = educationItems.map(item => {
+            const date = item.querySelector('.date')?.textContent.trim() || '';
+            const title = item.querySelector('h3')?.textContent.trim() || item.querySelector('h4')?.textContent.trim() || '';
+            const description = item.querySelector('p')?.textContent.trim() || '';
+            const note = item.querySelector('.education-note')?.textContent.trim() || '';
+            let result = title;
+            if (description) result += ' - ' + description;
+            if (note) result += ' - ' + note;
+            if (date) result = date + ' - ' + result;
+            return result;
+        }).join('\n');
+    }
+    
+    // Habilidades (nueva estructura compacta)
+    let skills = '';
+    
+    // Hard Skills (intentar nueva estructura primero, luego fallback a antigua)
+    let hardSkills = '';
+    const hardSkillsCategoriesCompact = Array.from(document.querySelectorAll('.skill-category-compact'));
+    if (hardSkillsCategoriesCompact.length > 0) {
+        hardSkills = hardSkillsCategoriesCompact.map(category => {
+            return cleanText(category.textContent || '');
+        }).join('; ');
+    } else {
+        // Fallback a estructura antigua
+        const hardSkillsCategories = Array.from(document.querySelectorAll('.skill-category'));
+        hardSkills = hardSkillsCategories.map(category => {
+            const categoryName = category.querySelector('.category-name')?.textContent.trim() || '';
+            const categoryItems = cleanText(category.querySelector('.category-items')?.textContent || '');
+            return categoryName + ' ' + categoryItems;
+        }).join('; ');
+    }
+    
+    // Soft Skills (intentar nueva estructura primero)
+    let softSkillsText = '';
+    const softSkillsTextCompact = document.querySelector('.soft-skills-text-compact')?.textContent;
+    if (softSkillsTextCompact) {
+        softSkillsText = cleanText(softSkillsTextCompact);
+    } else {
+        softSkillsText = cleanText(document.querySelector('.soft-skills-text')?.textContent || '');
+    }
+    
+    if (hardSkills) {
+        skills = 'Hard Skills: ' + hardSkills;
+    }
+    if (softSkillsText) {
+        skills += (hardSkills ? ' | ' : '') + 'Soft Skills: ' + softSkillsText;
+    }
+    
+    if (!skills) {
+        // Fallback si no encuentra la nueva estructura
+        const oldSkills = Array.from(document.querySelectorAll('.skills li'))
+            .map(li => li.textContent.trim())
+            .join(', ');
+        skills = oldSkills;
+    }
+    
+    // Idiomas (intentar nueva estructura compacta primero)
+    let languages = '';
+    const languagesCompact = document.querySelector('.languages-compact p')?.textContent.trim();
+    if (languagesCompact) {
+        languages = languagesCompact;
+    } else {
+        // Fallback a estructura antigua
+        const languagesList = Array.from(document.querySelectorAll('.languages li'));
+        languages = languagesList.map(li => li.textContent.trim()).join(', ');
+    }
+    
+    // Construir texto ATS en el orden correcto del CV:
+    // 1. Contacto, 2. Nombre/Título, 3. Perfil, 4. Experiencia, 5. Proyectos, 6. Certificaciones, 7. Habilidades, 8. Educación, 9. Idiomas
+    let atsText = `CONTACTO\n${contact}\n\n`;
+    atsText += `${name}\n${title}\n\n`;
+    atsText += `PERFIL\n${profile}\n\n`;
+    atsText += `EXPERIENCIA LABORAL\n${experienceText}\n\n`;
+    atsText += `PROYECTOS\n${projectsText}\n\n`;
     
     if (certificationsText) {
         atsText += `CERTIFICACIONES\n${certificationsText}\n\n`;
     }
     
-    atsText += `PROYECTOS\n${projectsText}\n`;
+    atsText += `HABILIDADES\n${skills}\n\n`;
+    atsText += `EDUCACIÓN\n${education}\n\n`;
+    atsText += `IDIOMAS\n${languages}\n`;
     
     return atsText;
 }

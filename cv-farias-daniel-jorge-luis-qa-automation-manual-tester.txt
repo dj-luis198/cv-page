@@ -1,0 +1,62 @@
+CONTACTO
++54 9 381 300 4847 | danieljlfariass@gmail.com | Tucumán, Argentina | https://www.linkedin.com/in/daniel-j-l-farias/ | https://github.com/dj-luis198
+
+Farias Daniel Jorge Luis
+QA Automation/Manual Tester
+
+PERFIL
+Profesional orientado a la calidad del software con experiencia en pruebas manuales y en la creación de proyectos propios de automatización. Experto en el análisis, diseño y ejecución de casos de prueba utilizando técnicas de caja negra. Con experiencia en la gestión de incidencias con Jira, XRay y Trello, aplicando metodologías ágiles como Scrum y Kanban. Hábil en consultas SQL y pruebas de API-REST con herramientas como Postman y JMeter. Conocimientos en Java, JavaScript y Dart, además de familiaridad con frameworks de automatización como Playwright, Selenium y Cypress en proyectos personales.
+
+EXPERIENCIA LABORAL
+Quality Assurance Analyst - Autónomo
+2023 - PRESENTE
+Diseño y ejecución de casos de prueba manuales bajo metodologías ágiles. Gestión de incidencias y tareas con Excel y Trello. Reporte y seguimiento de bugs respetando el ciclo de vida. Retesting y validación de correcciones. Pruebas de API con Postman. Proyectos destacados: Mis Envíos, radaR App (ver sección Proyectos).
+  • Scrum / Trello / Postman
+
+Quality Assurance Analyst - UPEX (Contrato temporal)
+2022 - 2023
+Participación en proyectos de QA manual en entorno ágil. Diseño y ejecución de suites de pruebas. Reporte de defectos y retesting. Colaboración con equipos multidisciplinarios para asegurar la calidad del producto.
+  • Scrum / Jira / XRay / SQL / Testing QA Manual
+
+PROYECTOS
+Mis Envíos - Desarrollador Frontend & QA Tester Manual (2025 - PRESENTE)
+Implementación de la interfaz de usuario en Android Studio, asegurando una experiencia fluida y accesible. Desarrollo de componentes reutilizables y responsivos para múltiples dispositivos. Testing funcional y de usabilidad, con identificación y documentación de errores. Contribución a la mejora continua mediante feedback sobre la experiencia del usuario.
+  • Android Studio / QA Manual / Testing funcional / Usabilidad
+
+radaR App - Desarrollador Frontend & QA Tester Manual (Ene. 2025 - Jul. 2025)
+Creación y ejecución de casos de prueba manuales para asegurar la calidad del producto. Reporte de bugs y gestión del proyecto con Trello bajo metodología Kanban. Implementación de la interfaz de usuario en Android Studio, contribuyendo a la mejora de la funcionalidad y experiencia del usuario final. Coordinación de pruebas internas y cerradas, incluyendo la recolección y traducción de feedback de testers para transformarlo en mejoras de backend y optimizaciones de la UI. Colaboración en la incorporación de nuevas funcionalidades orientadas a la experiencia del usuario y en la mejora continua del producto.
+  • Android Studio / QA Manual / Test Cases / Trello / Kanban
+
+CERTIFICACIONES
+Instituto Web
+Gestión ágil de proyectos QA con Jira, Confluence, Xray, Zephyr, AgilTest
+Dic. 2024
+
+TestAutomationU
+Cucumber with Java · JUnit 5 · Selenium 4 in Java · Scaling Tests with Docker
+Nov. 2024
+
+TestAutomationU
+IntelliJ for Test Automation Engineers · Introduction to TestNG · Java Programming
+Jun. 2024
+
+Instituto Web
+Testing QA Manual
+Jun. 2024
+
+Pushing IT
+Cypress Automation
+Feb. 2023
+
+Udemy
+Selenium con Java y Cucumber
+Jun. 2022
+
+HABILIDADES
+Hard Skills: Testing & QA Manual: Diseño y ejecución de casos de prueba, técnicas de caja negra, Bug Life Cycle; Automatización (proyectos propios): Playwright, Selenium 4, Cypress.io, Cucumber, JUnit 5, TestNG.; API Testing: Postman, Rest Assured, JMeter.; Gestión & Metodologías: Jira, XRay, Trello, Scrum, Kanban.; Lenguajes de programación: Java, JavaScript, Dart, SQL.; Bases de datos: Microsoft SQL Server.; Herramientas: Docker, Git/GitHub, IntelliJ IDEA, VS Code, Android studio, Power BI. | Soft Skills: Trabajo en equipo, proactividad, responsabilidad, ética laboral, pensamiento estratégico, multitarea, flexibilidad, dedicación, pasión por la calidad.
+
+EDUCACIÓN
+Universidad Tecnológica Tucumán - Ingeniería en Sistemas de Información Incompleto. Cursado hasta quinto año
+
+IDIOMAS
+Español (Nativo) · Inglés (Básico)
