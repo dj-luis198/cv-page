@@ -24,7 +24,7 @@ Implementación de la interfaz de usuario en Android Studio, asegurando una expe
   • Android Studio / QA Manual / Testing funcional / Usabilidad
 
 radaR App - Desarrollador Frontend & QA Tester Manual (Ene. 2025 - Jul. 2025)
-Creación y ejecución de casos de prueba manuales para asegurar la calidad del producto. Reporte de bugs y gestión del proyecto con Trello bajo metodología Kanban. Implementación de la interfaz de usuario en Android Studio, contribuyendo a la mejora de la funcionalidad y experiencia del usuario final. Coordinación de pruebas internas y cerradas, incluyendo la recolección y traducción de feedback de testers para transformarlo en mejoras de backend y optimizaciones de la UI. Colaboración en la incorporación de nuevas funcionalidades orientadas a la experiencia del usuario y en la mejora continua del producto.
+Creación y ejecución de casos de prueba manuales para asegurar la calidad del producto. Reporte de bugs y gestión del proyecto con Trello bajo metodología Kanban. Implementación de la interfaz de usuario en Android Studio, contribuyendo a la mejora de la funcionalidad y experiencia del usuario final. Publicación de la aplicación en la Google Play Store, gestionando todo el proceso de documentación y cumplimiento de requisitos. Coordinación de pruebas internas y cerradas, incluyendo la recolección y traducción de feedback de testers para transformarlo en mejoras de backend y optimizaciones de la UI. Colaboración en la incorporación de nuevas funcionalidades orientadas a la experiencia del usuario y en la mejora continua del producto.
   • Android Studio / QA Manual / Test Cases / Trello / Kanban
 
 CERTIFICACIONES
