@@ -605,6 +605,50 @@ body.pdf-generating {
     line-height: 1.6;
 }
 
+/* Proyectos dentro de experiencia laboral */
+.projects-within-experience {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ecf0f1;
+}
+
+.projects-subtitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #3498db;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.projects-within-experience .project-item {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    border-left: 3px solid #3498db;
+    margin-left: 0;
+}
+
+.projects-within-experience .project-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.projects-within-experience .project-header h3 {
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.projects-within-experience .project-item p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.projects-within-experience .project-item ul {
+    margin-top: 8px;
+}
+
 .award-item h3 {
     font-size: 18px;
     color: #2c3e50;

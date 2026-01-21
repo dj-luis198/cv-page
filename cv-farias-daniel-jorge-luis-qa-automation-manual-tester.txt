@@ -10,22 +10,24 @@ Profesional orientado a la calidad del software con experiencia en pruebas manua
 EXPERIENCIA LABORAL
 Quality Assurance Analyst - Autónomo
 2023 - PRESENTE
-Diseño y ejecución de casos de prueba manuales bajo metodologías ágiles. Gestión de incidencias y tareas con Excel y Trello. Reporte y seguimiento de bugs respetando el ciclo de vida. Retesting y validación de correcciones. Pruebas de API con Postman. Proyectos destacados: Mis Envíos, radaR App (ver sección Proyectos).
+Diseño y ejecución de casos de prueba manuales bajo metodologías ágiles. Gestión de incidencias y tareas con Excel y Trello. Reporte y seguimiento de bugs respetando el ciclo de vida. Retesting y validación de correcciones. Pruebas de API con Postman.
   • Scrum / Trello / Postman
+  • Android Studio / QA Manual / Testing funcional / Usabilidad
+  • Android Studio / QA Manual / Test Cases / Trello / Kanban
+
+Proyectos destacados:
+  Mis Envíos - Desarrollador Frontend & QA Tester Manual (2025 - PRESENTE)
+  Implementación de la interfaz de usuario en Android Studio, asegurando una experiencia fluida y accesible. Desarrollo de componentes reutilizables y responsivos para múltiples dispositivos. Testing funcional y de usabilidad, con identificación y documentación de errores. Contribución a la mejora continua mediante feedback sobre la experiencia del usuario.
+  • Android Studio / QA Manual / Testing funcional / Usabilidad
+
+  radaR App - Desarrollador Frontend & QA Tester Manual (Ene. 2025 - Jul. 2025)
+  Creación y ejecución de casos de prueba manuales para asegurar la calidad del producto. Reporte de bugs y gestión del proyecto con Trello bajo metodología Kanban. Implementación de la interfaz de usuario en Android Studio, contribuyendo a la mejora de la funcionalidad y experiencia del usuario final. Publicación de la aplicación en la Google Play Store, gestionando todo el proceso de documentación y cumplimiento de requisitos. Coordinación de pruebas internas y cerradas, incluyendo la recolección y traducción de feedback de testers para transformarlo en mejoras de backend y optimizaciones de la UI. Colaboración en la incorporación de nuevas funcionalidades orientadas a la experiencia del usuario y en la mejora continua del producto.
+  • Android Studio / QA Manual / Test Cases / Trello / Kanban
 
 Quality Assurance Analyst - UPEX (Contrato temporal)
 2022 - 2023
 Participación en proyectos de QA manual en entorno ágil. Diseño y ejecución de suites de pruebas. Reporte de defectos y retesting. Colaboración con equipos multidisciplinarios para asegurar la calidad del producto.
   • Scrum / Jira / XRay / SQL / Testing QA Manual
-
-PROYECTOS
-Mis Envíos - Desarrollador Frontend & QA Tester Manual (2025 - PRESENTE)
-Implementación de la interfaz de usuario en Android Studio, asegurando una experiencia fluida y accesible. Desarrollo de componentes reutilizables y responsivos para múltiples dispositivos. Testing funcional y de usabilidad, con identificación y documentación de errores. Contribución a la mejora continua mediante feedback sobre la experiencia del usuario.
-  • Android Studio / QA Manual / Testing funcional / Usabilidad
-
-radaR App - Desarrollador Frontend & QA Tester Manual (Ene. 2025 - Jul. 2025)
-Creación y ejecución de casos de prueba manuales para asegurar la calidad del producto. Reporte de bugs y gestión del proyecto con Trello bajo metodología Kanban. Implementación de la interfaz de usuario en Android Studio, contribuyendo a la mejora de la funcionalidad y experiencia del usuario final. Publicación de la aplicación en la Google Play Store, gestionando todo el proceso de documentación y cumplimiento de requisitos. Coordinación de pruebas internas y cerradas, incluyendo la recolección y traducción de feedback de testers para transformarlo en mejoras de backend y optimizaciones de la UI. Colaboración en la incorporación de nuevas funcionalidades orientadas a la experiencia del usuario y en la mejora continua del producto.
-  • Android Studio / QA Manual / Test Cases / Trello / Kanban
 
 CERTIFICACIONES
 Instituto Web

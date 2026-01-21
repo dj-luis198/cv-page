@@ -344,6 +344,34 @@ function initPDFGenerate() {
             
             .main-content section {
                 margin-bottom: 15px !important;
+                page-break-inside: auto !important;
+                break-inside: auto !important;
+            }
+            
+            .main-content h2 {
+                page-break-after: avoid !important;
+                break-after: avoid !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            
+            .experience-item,
+            .project-item {
+                page-break-inside: auto !important;
+                break-inside: auto !important;
+                page-break-after: auto !important;
+            }
+            
+            .experience-header,
+            .project-header {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            
+            .date-range,
+            .project-date {
+                page-break-after: avoid !important;
+                break-after: avoid !important;
             }
             
             .profile p {
@@ -385,6 +413,42 @@ function initPDFGenerate() {
             .project-item ul li {
                 font-size: 12px !important;
                 margin-bottom: 4px !important;
+            }
+            
+            .projects-within-experience {
+                margin-top: 12px !important;
+                padding-top: 12px !important;
+                border-top: 1px solid #ecf0f1 !important;
+            }
+            
+            .projects-subtitle {
+                font-size: 14px !important;
+                font-weight: 600 !important;
+                color: #3498db !important;
+                margin-bottom: 10px !important;
+                text-transform: uppercase !important;
+                letter-spacing: 0.5px !important;
+            }
+            
+            .projects-within-experience .project-item {
+                margin-bottom: 12px !important;
+                padding-bottom: 10px !important;
+                padding-left: 12px !important;
+                border-left: 2px solid #3498db !important;
+            }
+            
+            .projects-within-experience .project-item:last-child {
+                margin-bottom: 0 !important;
+                padding-bottom: 0 !important;
+            }
+            
+            .projects-within-experience .project-header h3 {
+                font-size: 15px !important;
+            }
+            
+            .projects-within-experience .project-item p {
+                font-size: 12px !important;
+                margin-bottom: 6px !important;
             }
             
             .compact-section {
@@ -520,6 +584,42 @@ function initPDFGenerate() {
                 margin-bottom: 4px !important;
             }
             
+            .projects-within-experience {
+                margin-top: 12px !important;
+                padding-top: 12px !important;
+                border-top: 1px solid #ecf0f1 !important;
+            }
+            
+            .projects-subtitle {
+                font-size: 14px !important;
+                font-weight: 600 !important;
+                color: #3498db !important;
+                margin-bottom: 10px !important;
+                text-transform: uppercase !important;
+                letter-spacing: 0.5px !important;
+            }
+            
+            .projects-within-experience .project-item {
+                margin-bottom: 12px !important;
+                padding-bottom: 10px !important;
+                padding-left: 12px !important;
+                border-left: 2px solid #3498db !important;
+            }
+            
+            .projects-within-experience .project-item:last-child {
+                margin-bottom: 0 !important;
+                padding-bottom: 0 !important;
+            }
+            
+            .projects-within-experience .project-header h3 {
+                font-size: 15px !important;
+            }
+            
+            .projects-within-experience .project-item p {
+                font-size: 12px !important;
+                margin-bottom: 6px !important;
+            }
+            
             .compact-section {
                 margin-top: 10px !important;
             }
@@ -606,7 +706,10 @@ function initPDFGenerate() {
                 }
             },
             jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-            pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+            pagebreak: { 
+                mode: ['css', 'legacy'], 
+                avoid: ['.experience-header', '.project-header', 'h2', 'h3', '.date-range', '.project-date']
+            }
         };
         
         return html2pdf().set(opt).from(element).save().then(() => {
@@ -888,12 +991,29 @@ function generateATSVersion() {
             .map(li => '  • ' + li.textContent.trim())
             .join('\n');
         
-        return `${role} - ${company}\n${date}\n${description}\n${bullets}`;
+        // Buscar proyectos dentro de esta experiencia
+        const projectsWithin = exp.querySelectorAll('.projects-within-experience .project-item');
+        let projectsSection = '';
+        if (projectsWithin.length > 0) {
+            projectsSection = '\n\nProyectos destacados:\n';
+            projectsSection += Array.from(projectsWithin).map(proj => {
+                const projHeader = proj.querySelector('.project-header');
+                const projTitle = projHeader?.querySelector('h3')?.textContent.trim() || '';
+                const projDate = projHeader?.querySelector('.project-date')?.textContent.trim() || '';
+                const projDescription = cleanText(proj.querySelector('p')?.textContent || '');
+                const projBullets = Array.from(proj.querySelectorAll('ul li'))
+                    .map(li => '  • ' + li.textContent.trim())
+                    .join('\n');
+                return `  ${projTitle} (${projDate})\n  ${projDescription}${projBullets ? '\n' + projBullets : ''}`;
+            }).join('\n\n');
+        }
+        
+        return `${role} - ${company}\n${date}\n${description}\n${bullets}${projectsSection}`;
     }).join('\n\n');
     
-    // Proyectos
-    const projects = Array.from(document.querySelectorAll('.project-item'));
-    const projectsText = projects.map(proj => {
+    // Proyectos (solo los que no están dentro de experiencia, por compatibilidad)
+    const projects = Array.from(document.querySelectorAll('.projects .project-item'));
+    const projectsText = projects.length > 0 ? projects.map(proj => {
         const header = proj.querySelector('.project-header');
         const title = header?.querySelector('h3')?.textContent.trim() || '';
         const date = header?.querySelector('.project-date')?.textContent.trim() || '';
@@ -903,7 +1023,7 @@ function generateATSVersion() {
             .join('\n');
         
         return `${title} (${date})\n${description}\n${bullets}`;
-    }).join('\n\n');
+    }).join('\n\n') : '';
     
     // Certificaciones (nueva estructura compacta)
     const certifications = Array.from(document.querySelectorAll('.certification-item-compact'));
@@ -996,7 +1116,9 @@ function generateATSVersion() {
     atsText += `${name}\n${title}\n\n`;
     atsText += `PERFIL\n${profile}\n\n`;
     atsText += `EXPERIENCIA LABORAL\n${experienceText}\n\n`;
-    atsText += `PROYECTOS\n${projectsText}\n\n`;
+    if (projectsText) {
+        atsText += `PROYECTOS\n${projectsText}\n\n`;
+    }
     
     if (certificationsText) {
         atsText += `CERTIFICACIONES\n${certificationsText}\n\n`;
